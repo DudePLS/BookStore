@@ -1,0 +1,41 @@
+(#4) How to create asp.net core mvc web application (using Visual Studio 2019 & CLI) | .Net Core 3
+Открываем VS и создаем
+mvc - почти также как razor pages
+
+(#5) What is MVC pattern (model view controller architecture) in .net core | Asp.Net Core Tutorial
+Model-View-Controller - архитектурный шаблон 
+ Model - responsible for data
+ View - for UI
+ Contoller -for flow of application by accepting user input
+Contoller .cs фаил с методами действий
+когда поступает запрос на контроллер, он  запускает action method  и метод возращает либо вью, либо дату, или и то, и то. 
+ Model - простой класс со свойствами, используется для передачи через контроллер to view и наоборот view to controller(action method).
+Также модел используют для валидаци(проверки) данных сервер части.
+не обязательно акт метод должен возращать модель или вью
+View - смесь C# and HTML
+все что в браузере видим это вью.
+когда вью рендерится в браузер весь си шарп код конвертится в хтмл, т е в браузере мы всегда видим только даннные и хмтл.
+Плюсы MVC разделение ответственности и каждый компонент отвечает за своё(проще дебажить код)
+
+(#6) Convert console application to web application in asp.net core | WebHostBuilder in .net core
+steps to convert console app into web app
+1 update SDK in csproj
+2 update output type in csproj
+3 add new WebHostBuilder
+4 add routing
+5 setup default route
+Host - объект инкапсулирующий ресы приложения:
+*Dependency injection
+*Logging
+*Configuration
+*IHostedService implemetation 
+
+
+(#8) Middleware in Asp.net Core | app.Use(), app.Next(), app.Map() | Http Pipeline | ASP.NET Core
+HTTP pipelining — технология, которая позволяет передавать на сервер сразу несколько запросов в одном соединении, не ожидая соответствующих ответов
+ASP.NET Core create http application pipeline that processes the request.
+Http Pipeline настраивается в Configure Methods of Startup.cs
+все реквесты проходят через pipeline
+Multiple Middleware  - request - response
+ app.Use()- create middleware
+
