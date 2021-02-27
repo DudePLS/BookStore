@@ -26,13 +26,26 @@ namespace Webgentle.BookStore
                 app.UseDeveloperExceptionPage();
             }
 
+            
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapGet("/", async context =>
                 {
-                    await context.Response.WriteAsync("Hello World!");
+                    if (env.IsDevelopment())
+                    {
+                        await context.Response.WriteAsync("Hello from Dev");
+                    }
+                    else if (env.IsProduction())
+                    {
+                        await context.Response.WriteAsync("Hello from prod");
+                    }
+                    else if (env.IsStaging())
+                    {
+                        await context.Response.WriteAsync("Hello from stag");
+                    }
+                    else await context.Response.WriteAsync("Bye ");
                 });
             });
         }
